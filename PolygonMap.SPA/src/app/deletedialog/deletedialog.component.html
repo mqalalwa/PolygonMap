@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Delete form</h1>
+
+<p>This polygon will delete unless you clik undo</p>
+<mat-progress-bar class="example-margin" [color]="'Warn'" [mode]="'determinate'" [value]="value">
+</mat-progress-bar>
+
+<mat-icon (click)="onNoClick()" matListAvatar>
+    undo
+</mat-icon>

@@ -1,0 +1,54 @@
+PolygonMap.API/.vs
+PolygonMap.API/Polygon.Domain/bin
+PolygonMap.API/Polygon.Domain/obj
+PolygonMap.API/PolygonMap.API/bin
+PolygonMap.API/PolygonMap.API/obj
+PolygonMap.API/PolygonMap.Data/bin
+PolygonMap.API/PolygonMap.Data/obj
+
+PolygonMap.SPA/src/.vs
+
+# compiled output
+PolygonMap.SPA/dist
+PolygonMap.SPA/tmp
+PolygonMap.SPA/out-tsc
+# Only exists if Bazel was run
+PolygonMap.SPA/bazel-out
+
+# dependencies
+PolygonMap.SPA/node_modules
+
+# profiling files
+PolygonMap.SPA/chrome-profiler-events.json
+PolygonMap.SPA/speed-measure-plugin.json
+
+# IDEs and editors
+PolygonMap.SPA/.idea
+PolygonMap.SPA/.project
+PolygonMap.SPA/.classpath
+PolygonMap.SPA/.c9/
+PolygonMap.SPA/*.launch
+PolygonMap.SPA/.settings/
+PolygonMap.SPA/*.sublime-workspace
+
+# IDE - VSCode
+/PolygonMap.SPA.vscode/*
+PolygonMap.SPA/!.vscode/settings.json
+PolygonMap.SPA/!.vscode/tasks.json
+PolygonMap.SPA/!.vscode/launch.json
+PolygonMap.SPA/!.vscode/extensions.json
+PolygonMap.SPA/.history/*
+
+# misc
+PolygonMap.SPA/.sass-cache
+PolygonMap.SPA/connect.lock
+PolygonMap.SPA/coverage
+PolygonMap.SPA/libpeerconnection.log
+PolygonMap.SPA/npm-debug.log
+PolygonMap.SPA/yarn-error.log
+PolygonMap.SPA/testem.log
+PolygonMap.SPA/typings
+
+# System Files
+PolygonMap.SPA/.DS_Store
+PolygonMap.SPA/Thumbs.db

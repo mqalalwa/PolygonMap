@@ -1,0 +1,46 @@
+<mat-drawer-container>
+    <mat-drawer mode="side" opened>
+        <div class="example-container">
+            <button mat-button color="accent" *ngIf="!editmode && !newPolygonMode" 
+            (click)="newPolygonMode = true;showPolyGon=false">Add new PolyGon</button>
+            <mat-form-field *ngIf="newPolygonMode ||editmode">
+                <input matInput placeholder="Name Of Point" [disabled]="editmode" [(ngModel)]="Name">
+            </mat-form-field>
+            <mat-form-field *ngIf="editmode ||newPolygonMode">
+                <input matInput placeholder="Langitude" type="number" step="any" [disabled]="editmode" [(value)]="newlng">
+            </mat-form-field>
+            <mat-form-field *ngIf="editmode ||newPolygonMode">
+                <input matInput placeholder="Latitude" type="number" step="0.00000000001" [disabled]="editmode" [(value)]="newlat">
+            </mat-form-field>
+            <mat-form-field *ngIf="newPolygonMode || editmode">
+                <mat-label>Slected Polygon to draw </mat-label>
+                <mat-select [(value)]="ShapeID">
+                    <mat-option *ngFor="let shape of Shapes" [value]="shape.shapeID">
+                        {{shape.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <button mat-button (click)="Save()" *ngIf="editmode ||newPolygonMode">save new polygon</button>
+            <button mat-button (click)="Cancel()" *ngIf="editmode ||newPolygonMode">Cancel</button>
+            <div style="flex:1"></div>
+<div> <mat-icon svgIcon="fb"></mat-icon>
+    <mat-icon svgIcon="google"></mat-icon></div>
+               
+        </div>
+
+    </mat-drawer>
+    <mat-drawer-content>
+        <agm-map #googlemapspicture id="mappp" [latitude]="newlat" [longitude]="newlng" [zoom]="zoom" (mapReady)="onMapReady($event)">
+            <agm-polygon *ngIf="showPolyGon"
+             (polyMouseOut)="showrecycleBinIcon = false" 
+             [editable]="false" (polyMouseOver)="showRecycleBin()" [paths]="paths">
+            </agm-polygon>
+            <agm-marker *ngIf="newPolygonMode"
+             [latitude]="31.95229" [longitude]="35.25868" 
+             [label]="marker.label" [markerDraggable]="marker.draggable"
+              (dragEnd)="markerDragEnd(marker, $event)"></agm-marker>
+            <agm-marker [iconUrl]="'../assets/TR.svg'" *ngIf="showrecycleBinIcon" [latitude]="CurrentPolygon.realLatitude+0.002" [longitude]="CurrentPolygon.realLongitude" [markerClickable]="true" (markerClick)="deleteDialog()"></agm-marker>
+            <agm-marker [iconUrl]="'../assets/edit_location.svg'" *ngIf="showrecycleBinIcon" [latitude]="CurrentPolygon.realLatitude+0.002" [longitude]="CurrentPolygon.realLongitude+0.003" [markerClickable]="true" (markerClick)="startEdit()"></agm-marker>
+        </agm-map>
+    </mat-drawer-content>
+</mat-drawer-container>
